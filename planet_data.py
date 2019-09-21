@@ -1,3 +1,6 @@
+'''This is file is helpful in computing approximate sedireal degrees using Pyephem . 
+All the licenses applicable for Pyepehem all also applicable '''
+
 import pandas as pd,matplotlib.pyplot as plt , numpy as np,quandl
 import ephem,time , datetime
 from ephem import cities
@@ -13,7 +16,17 @@ def thithi(dff):
     dff['thithi'] = arr
     return dff
 
+def get_weekday(dff):
+    dff['weekday'] = dff.index.dayofweek
+    return dff
 
+def get_navamsha(dff):
+    p = ['mars', 'jupiter', 'saturn', 'sun', 'moon', 'rahu', 'mercury', 'venus']
+    for i in p:
+        dff[i + '_nm'] = 30*(((dff[i]*60) % 2400)/200)
+        dff[i + "_n_h"] =  (1 + ((dff[i]*60) % 2400)//200)
+        dff[i+"_h"] = 1 + (dff[i]//30)
+    return dff
 
 def lahiriayanamsa(dff):
     ayy = []
