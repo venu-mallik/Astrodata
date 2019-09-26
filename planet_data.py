@@ -1,5 +1,5 @@
-'''This is file is helpful in computing approximate sedireal degrees using Pyephem . 
-All the licenses applicable for Pyepehem all also applicable '''
+'''The following code is helpful in computing approximate sidereal degrees using Pyephem . 
+All the licenses applicable for Pyepehem are also applicable here '''
 
 import pandas as pd,matplotlib.pyplot as plt , numpy as np,quandl
 import ephem,time , datetime
